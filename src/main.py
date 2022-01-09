@@ -176,13 +176,11 @@ while client.is_running() == 'true':
     clock.tick(60)
 
     # Allocates a pokemon for each agent
-    # pokemons_copy = pokemons.copy()
     for a, agent in game.agentList.items():
         if agent.dest == -1:
             pokemon, next_node = game.choosePokForAgent(agent)
             client.choose_next_edge('{"agent_id":' + str(agent._id) + ', "next_node_id":' + str(next_node) + '}')
             ttl = client.time_to_end()
-            # print(ttl, client.get_info())
 
     move = False
     for a, agent in game.agentList.items():
@@ -194,25 +192,5 @@ while client.is_running() == 'true':
             break
 
     asyncio.run(move_pokemons(move))
-
-# for agent in game.agentList.values():
-    #     if agent.dest == -1:
-    #         if len(agent.path) == 0:
-    #             game.choosePockForAgent(agent._id)
-    #         if agent.path[0] == agent.src:
-    #             agent.path.pop(0)
-    #     if len(agent.path) > 0:
-    #         client.choose_next_edge('{"agent_id":' + str(agent._id) + ', "next_node_id":' + str(agent.path.pop(0)) + '}')
-    # # oo = client.get_agents()
-    # game.loadAgents_from_json(client.get_agents())
-    # move = False
-    # for agent in game.agentList.values():
-    #     for pokemon in pokemon_list:
-    #         if agent.src == pokemon.edge[0] and agent.dest == pokemon.edge[1]:
-    #             move = True
-    #             break
-    #     if move:
-    #         break
-    # asyncio.run(move_pokemons(move))
 # game over:
 
