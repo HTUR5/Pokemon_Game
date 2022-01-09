@@ -9,7 +9,6 @@ class Agent:
         self.dest = dest
         self.speed = speed
         self.pos = pos
-        # self.path = []
 
     def __repr__(self) -> str:
         return "{{'Agent': id:{} value:{} src:{} dest:{} speed:{} pos:{}}}" \
