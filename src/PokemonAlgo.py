@@ -55,14 +55,6 @@ class PokemonAlgo:
             pos = list(map(float, agent['Agent']['pos'].split(',')))
             agentList[id] = Agent(id, value, src, dest, speed, pos)
         self.agentList = agentList
-        # else:
-        #     for agent in agent_dict['Agents']:
-        #         id = agent['Agent']['id']
-        #         self.agentList[id].value = agent['Agent']['value']
-        #         self.agentList[id].src = agent['Agent']['src']
-        #         self.agentList[id].dest = agent['Agent']['dest']
-        #         self.agentList[id].speed = agent['Agent']['speed']
-        #         self.agentList[id].pos = list(map(float, agent['Agent']['pos'].split(',')))
 
     # Finds pokemon to which to send the agent
     def choosePokForAgent(self, agent: Agent):
@@ -82,27 +74,8 @@ class PokemonAlgo:
                     next_node = next_node_temp[0]
                 else:
                     next_node = next_node_temp[1]
-        # self.pokemonList.remove(pokemon)
         del self.pokemonList[index]
         return pokemonMin, next_node
-
-    # def choosePockForAgent(self, agent):
-    #     minDist = float('inf')
-    #     minPath = []
-    #     pokemonMin = -1
-    #     for i in range(len(self.pokemonList)):
-    #         # if self.agentList[agent].src == self.pokemonList[i].edge[0]:
-    #         #     self.agentList[agent].path = {self.pokemonList[i].edge[1]}
-    #         if self.pokemonList[i].available is False:
-    #             dist = self.graphAlgo.shortest_path(self.agentList[agent].src,self.pokemonList[i].edge[0])
-    #             if dist[0] < minDist:
-    #                 minDist = dist[0]
-    #                 minPath = dist[1]
-    #                 minPath.append(self.pokemonList[i].edge[1])
-    #                 pokemonMin = i
-    #     self.agentList[agent].path = list(self.agentList[agent].path) + list(minPath)
-    #     self.pokemonList[pokemonMin].available = False
-    #     # return pokemonMin
 
     @staticmethod
     def distance(pos1,pos2):
