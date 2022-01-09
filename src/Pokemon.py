@@ -8,7 +8,6 @@ class Pokemon:
         self.type = type
         self.edge = edge
         self.pos = pos
-        # self.available = False
 
     def __repr__(self) -> str:
         return "{{'Pokemon': value:{} type:{} pos:{}}}" \
